@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AquaRappel.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:AquaRappel.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="{StaticResource AqPrimary}"
+    Shell.TabBarTitleColor="{StaticResource AqPrimary}"
+    Shell.TabBarUnselectedColor="{StaticResource AqMuted}">
+
+    <!-- Écrans d'entrée, sans barre de navigation -->
+    <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
+    <ShellContent Route="register" ContentTemplate="{DataTemplate views:RegisterPage}" />
+
+    <!-- Barre de navigation à 5 onglets -->
+    <TabBar Route="main">
+        <ShellContent Title="🏠 Accueil" Route="home" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="⏰ Rappels" Route="reminders" ContentTemplate="{DataTemplate views:RemindersPage}" />
+        <ShellContent Title="😴 Sommeil" Route="sleep" ContentTemplate="{DataTemplate views:SleepPage}" />
+        <ShellContent Title="👀 Pauses" Route="breaks" ContentTemplate="{DataTemplate views:BreaksPage}" />
+        <ShellContent Title="📊 Stats" Route="stats" ContentTemplate="{DataTemplate views:StatsPage}" />
+    </TabBar>
+</Shell>

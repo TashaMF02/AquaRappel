@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.RegisterPage" BackgroundColor="{StaticResource AqPale}" Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,40,24,24" Spacing="12">
+            <Image Source="aqua_logo.svg" WidthRequest="84" HeightRequest="84" />
+            <Label Text="Rejoins AquaRappel 🎉" Style="{StaticResource AqTitle}" HorizontalTextAlignment="Center" />
+            <Label Text="😀 Prénom" Style="{StaticResource AqLabel}" Margin="0,12,0,0" />
+            <Border Style="{StaticResource AqField}"><Entry x:Name="NameEntry" Placeholder="Awa" Style="{StaticResource AqEntry}" /></Border>
+            <Label Text="📧 Adresse email" Style="{StaticResource AqLabel}" />
+            <Border Style="{StaticResource AqField}"><Entry x:Name="EmailEntry" Placeholder="awa@exemple.com" Keyboard="Email" Style="{StaticResource AqEntry}" /></Border>
+            <Label Text="🔒 Mot de passe" Style="{StaticResource AqLabel}" />
+            <Border Style="{StaticResource AqField}"><Entry x:Name="PasswordEntry" IsPassword="True" Placeholder="8 caractères minimum" Style="{StaticResource AqEntry}" /></Border>
+            <Label x:Name="FormError" Style="{StaticResource AqError}" />
+            <Button Text="Créer mon compte ✅" Style="{StaticResource AqPrimaryButton}" Margin="0,10,0,0" Clicked="OnRegister" />
+            <Label Text="Déjà inscrite ? Se connecter 👋" Style="{StaticResource AqLink}" HorizontalOptions="Center">
+                <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnGoLogin" /></Label.GestureRecognizers>
+            </Label>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
