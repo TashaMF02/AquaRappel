@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Couleurs de la charte AquaRappel -->
+    <Color x:Key="AqPrimary">#0D47A1</Color>
+    <Color x:Key="AqAccent">#4FC3F7</Color>
+    <Color x:Key="AqBg">#F5FAFF</Color>
+    <Color x:Key="AqInk">#0B1B2E</Color>
+    <Color x:Key="AqMuted">#5A6B7E</Color>
+    <Color x:Key="AqDanger">#C62828</Color>
+    <Color x:Key="AqLine">#DCE6F2</Color>
+    <Color x:Key="AqPale">#E3F2FD</Color>
+    <Color x:Key="AqBorder">#8FA3BA</Color>
+    <Color x:Key="AqDisabled">#D5DEE9</Color>
+    <Color x:Key="AqWhite">#FFFFFF</Color>
+
+    <!-- Textes -->
+    <Style x:Key="AqTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+    </Style>
+    <Style x:Key="AqHeading" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+    </Style>
+    <Style x:Key="AqBody" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+    </Style>
+    <Style x:Key="AqLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+    </Style>
+    <Style x:Key="AqCaption" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource AqMuted}" />
+    </Style>
+    <Style x:Key="AqError" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource AqDanger}" />
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style x:Key="AqLink" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="MinimumHeightRequest" Value="44" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+    </Style>
+
+    <!-- Carte -->
+    <Style x:Key="AqCard" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="Stroke" Value="{StaticResource AqLine}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="24" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Champ de saisie (Border + Entry) -->
+    <Style x:Key="AqField" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="Stroke" Value="{StaticResource AqBorder}" />
+        <Setter Property="StrokeThickness" Value="1.5" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="Padding" Value="16,0" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="12" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="AqEntry" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource AqBorder}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <!-- Boutons -->
+    <Style x:Key="AqPrimaryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HeightRequest" Value="52" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource AqDisabled}" />
+                            <Setter Property="TextColor" Value="{StaticResource AqMuted}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style x:Key="AqOutlineButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="TextColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="BorderColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="BorderWidth" Value="1.5" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style x:Key="AqSelectedButton" TargetType="Button" BasedOn="{StaticResource AqOutlineButton}">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+    </Style>
+    <Style x:Key="AqDayButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="BorderColor" Value="{StaticResource AqBorder}" />
+        <Setter Property="BorderWidth" Value="1.5" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style x:Key="AqDayButtonOn" TargetType="Button" BasedOn="{StaticResource AqDayButton}">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="BorderColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+    </Style>
+
+    <!-- Couleurs ludiques -->
+    <Color x:Key="AqSun">#FFF8E1</Color>
+    <Color x:Key="AqLilac">#EDE7F6</Color>
+    <Color x:Key="AqMint">#E0F7F4</Color>
+    <Color x:Key="AqPeach">#FFE9E0</Color>
+    <Color x:Key="AqWhiteSoft">#CFE3FA</Color>
+    <Style x:Key="AqHeaderTitle" TargetType="Label">
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    <Style x:Key="AqHeaderSub" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource AqWhiteSoft}" />
+    </Style>
+    <Style x:Key="AqHeader" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="Padding" Value="22,44,22,26" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 0,0,32,32" />
+    </Style>
+</ResourceDictionary>
