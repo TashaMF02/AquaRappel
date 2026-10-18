@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.BreaksPage" Title="Pauses" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*">
+        <Border Style="{StaticResource AqHeader}">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="👀  Pauses" Style="{StaticResource AqHeaderTitle}" />
+                <Label Text="Repose tes yeux, ils le méritent" Style="{StaticResource AqHeaderSub}" />
+            </VerticalStackLayout>
+        </Border>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqMint}" Stroke="#B2DFDB">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="🌳 Règle 20-20-20" Style="{StaticResource AqHeading}" />
+                        <Label Text="Toutes les 20 minutes, regarde au loin (6 m) pendant 20 secondes." Style="{StaticResource AqCaption}" FontSize="14" />
+                    </VerticalStackLayout>
+                </Border>
+                <Label Text="⏱️ Fréquence des pauses" Style="{StaticResource AqLabel}" />
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                    <Button Text="20 min" Style="{StaticResource AqOutlineButton}" />
+                    <Button Grid.Column="1" Text="45 min" Style="{StaticResource AqSelectedButton}" />
+                    <Button Grid.Column="2" Text="1 h" Style="{StaticResource AqOutlineButton}" />
+                </Grid>
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqSun}" Stroke="#FFE082">
+                    <VerticalStackLayout><Label Text="🏅 Pauses prises aujourd'hui" Style="{StaticResource AqCaption}" /><Label Text="4 sur 6" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" /></VerticalStackLayout>
+                </Border>
+                <Button Text="J'ai fait ma pause ✅" Style="{StaticResource AqPrimaryButton}" Clicked="OnBreak" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

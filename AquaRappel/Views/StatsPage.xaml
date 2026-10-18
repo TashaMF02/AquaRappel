@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.StatsPage" Title="Stats" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*">
+        <Border Style="{StaticResource AqHeader}">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="📊  Stats" Style="{StaticResource AqHeaderTitle}" />
+                <Label Text="Ta semaine du 28 sept. au 4 oct." Style="{StaticResource AqHeaderSub}" />
+            </VerticalStackLayout>
+        </Border>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqPale}">
+                    <VerticalStackLayout Spacing="12">
+                        <Grid ColumnDefinitions="*,Auto"><Label Text="💧 Eau bue par jour" Style="{StaticResource AqHeading}" FontSize="16" /><Label Grid.Column="1" Text="Moyenne 1,8 L" Style="{StaticResource AqCaption}" VerticalOptions="Center" /></Grid>
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*" HeightRequest="170" ColumnSpacing="6">
+                            <VerticalStackLayout Grid.Column="0" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="108" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqAccent}" /><Label Text="L" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="126" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqPrimary}" /><Label Text="M" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="2" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="90" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqAccent}" /><Label Text="M" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="3" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="138" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqPrimary}" /><Label Text="J" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="4" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="120" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqPrimary}" /><Label Text="V" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="5" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="72" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqAccent}" /><Label Text="S" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="6" VerticalOptions="End" Spacing="4"><BoxView HeightRequest="114" WidthRequest="24" CornerRadius="8" Color="{StaticResource AqAccent}" /><Label Text="D" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" /></VerticalStackLayout>
+                        </Grid>
+                        <Label Text="🎯 Objectif : 2 L par jour (barres foncées = atteint)" Style="{StaticResource AqCaption}" />
+                    </VerticalStackLayout>
+                </Border>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqLilac}"><VerticalStackLayout><Label Text="😴 Sommeil moyen" Style="{StaticResource AqCaption}" /><Label Text="7 h 05" FontSize="24" FontAttributes="Bold" /></VerticalStackLayout></Border>
+                    <Border Grid.Column="1" Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqMint}"><VerticalStackLayout><Label Text="👀 Pauses écran" Style="{StaticResource AqCaption}" /><Label Text="27" FontSize="24" FontAttributes="Bold" /></VerticalStackLayout></Border>
+                </Grid>
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqSun}">
+                    <VerticalStackLayout Spacing="8">
+                        <Grid ColumnDefinitions="*,Auto"><Label Text="🏆 Objectif atteint" Style="{StaticResource AqHeading}" FontSize="16" /><Label Grid.Column="1" Text="3 jours sur 7" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" /></Grid>
+                        <ProgressBar Progress="0.43" ProgressColor="{StaticResource AqPrimary}" />
+                        <Label Text="Encore 2 jours pour une super habitude ! 💪" Style="{StaticResource AqCaption}" />
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

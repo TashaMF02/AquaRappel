@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.SleepPage" Title="Sommeil" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*">
+        <Border Style="{StaticResource AqHeader}">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="😴  Sommeil" Style="{StaticResource AqHeaderTitle}" />
+                <Label Text="Une bonne nuit, une belle journée" Style="{StaticResource AqHeaderSub}" />
+            </VerticalStackLayout>
+        </Border>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqLilac}" Stroke="#D1C4E9">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🌙 Heure du coucher" Style="{StaticResource AqLabel}" />
+                        <TimePicker x:Name="BedPicker" Time="22:30" TextColor="{StaticResource AqInk}" PropertyChanged="OnTimeChanged" />
+                        <Label Text="☀️ Heure du réveil" Style="{StaticResource AqLabel}" />
+                        <TimePicker x:Name="WakePicker" Time="06:30" TextColor="{StaticResource AqInk}" PropertyChanged="OnTimeChanged" />
+                    </VerticalStackLayout>
+                </Border>
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqPale}">
+                    <VerticalStackLayout HorizontalOptions="Center">
+                        <Label Text="💤 Durée de la nuit" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" />
+                        <Label x:Name="DurationLabel" Text="8 h 00" FontSize="44" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Border>
+                <Label Text="Comment tu as dormi ?" Style="{StaticResource AqLabel}" />
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                    <Button Text="😫 Mal" Style="{StaticResource AqOutlineButton}" />
+                    <Button Grid.Column="1" Text="😐 Bof" Style="{StaticResource AqSelectedButton}" />
+                    <Button Grid.Column="2" Text="😄 Top" Style="{StaticResource AqOutlineButton}" />
+                </Grid>
+                <Button Text="Enregistrer la nuit 🌟" Style="{StaticResource AqPrimaryButton}" Clicked="OnSave" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

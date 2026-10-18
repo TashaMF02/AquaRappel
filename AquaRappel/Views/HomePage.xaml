@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.HomePage" Title="Accueil" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+    <Grid RowDefinitions="Auto,*">
+        <Border Style="{StaticResource AqHeader}">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+                <Image Source="aqua_logo.svg" WidthRequest="64" HeightRequest="64" />
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="Salut Awa ! 👋" Style="{StaticResource AqHeaderTitle}" />
+                    <Label Text="Reste hydratée, championne 💪" Style="{StaticResource AqHeaderSub}" />
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqPale}" Stroke="{StaticResource AqAccent}" StrokeThickness="2">
+                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnOpenGoal" /></Border.GestureRecognizers>
+                    <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                        <Label Text="💧 Mon eau du jour" Style="{StaticResource AqLabel}" HorizontalTextAlignment="Center" />
+                        <Label x:Name="AmountLabel" Text="1,2 L" FontSize="48" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" HorizontalTextAlignment="Center" />
+                        <Label x:Name="GoalLabel" Text="sur 2 L · touche pour changer 🎯" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" />
+                        <Label x:Name="GlassesLabel" Text="💧💧💧💧💧⚪⚪⚪" FontSize="26" HorizontalTextAlignment="Center" />
+                        <Label x:Name="MsgLabel" Text="Plus que 4 verres !" Style="{StaticResource AqBody}" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                    <Button Grid.Column="0" Text="🥤 150" Style="{StaticResource AqOutlineButton}" Clicked="OnAdd" CommandParameter="150" />
+                    <Button Grid.Column="1" Text="💧 250" Style="{StaticResource AqOutlineButton}" Clicked="OnAdd" CommandParameter="250" />
+                    <Button Grid.Column="2" Text="🚰 500" Style="{StaticResource AqOutlineButton}" Clicked="OnAdd" CommandParameter="500" />
+                </Grid>
+                <Button Text="✨ Saisie rapide" Style="{StaticResource AqPrimaryButton}" Clicked="OnQuickEntry" />
+
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqSun}" Stroke="#FFE082">
+                    <VerticalStackLayout Spacing="8">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="⏰ Prochain rappel" Style="{StaticResource AqCaption}" />
+                                <Label Text="Glou glou ! Un verre d'eau 💦" Style="{StaticResource AqBody}" FontAttributes="Bold" />
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1" x:Name="NextLabel" Text="dans 60 min" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" VerticalOptions="Center" />
+                        </Grid>
+                        <Button Text="🔔 Tester le rappel" Style="{StaticResource AqOutlineButton}" Clicked="OnTestReminder" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqLilac}" Stroke="#D1C4E9"><VerticalStackLayout><Label Text="😴 Sommeil" Style="{StaticResource AqCaption}" /><Label Text="7 h 20" FontSize="24" FontAttributes="Bold" /></VerticalStackLayout></Border>
+                    <Border Grid.Column="1" Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqMint}" Stroke="#B2DFDB"><VerticalStackLayout><Label Text="👀 Pauses écran" Style="{StaticResource AqCaption}" /><Label Text="4 / 6" FontSize="24" FontAttributes="Bold" /></VerticalStackLayout></Border>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
