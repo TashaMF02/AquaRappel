@@ -14,48 +14,62 @@
     <Color x:Key="AqBorder">#8FA3BA</Color>
     <Color x:Key="AqDisabled">#D5DEE9</Color>
     <Color x:Key="AqWhite">#FFFFFF</Color>
+    <Color x:Key="AqPaper">#FBF7EE</Color>
+    <Color x:Key="AqOnPrimary">#FFFFFF</Color>
+    <Color x:Key="AqHeaderBg">#0D47A1</Color>
+    <Color x:Key="AqTabOn">#0D47A1</Color>
+
+
+    <!-- Police Bookman pour tous les contrôles sans style nommé -->
+    <Style TargetType="Label"><Setter Property="FontFamily" Value="Bookman" /><Setter Property="TextColor" Value="{DynamicResource AqInk}" /></Style>
+    <Style TargetType="Button"><Setter Property="FontFamily" Value="Bookman" /></Style>
+    <Style TargetType="Entry"><Setter Property="FontFamily" Value="Bookman" /><Setter Property="TextColor" Value="{DynamicResource AqInk}" /></Style>
+    <Style TargetType="TimePicker"><Setter Property="FontFamily" Value="Bookman" /><Setter Property="TextColor" Value="{DynamicResource AqInk}" /></Style>
 
     <!-- Textes -->
     <Style x:Key="AqTitle" TargetType="Label">
         <Setter Property="FontSize" Value="24" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
     </Style>
     <Style x:Key="AqHeading" TargetType="Label">
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
     </Style>
     <Style x:Key="AqBody" TargetType="Label">
+        <Setter Property="FontFamily" Value="Bookman" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
     </Style>
     <Style x:Key="AqLabel" TargetType="Label">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
     </Style>
     <Style x:Key="AqCaption" TargetType="Label">
+        <Setter Property="FontFamily" Value="Bookman" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="{StaticResource AqMuted}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqMuted}" />
     </Style>
     <Style x:Key="AqError" TargetType="Label">
+        <Setter Property="FontFamily" Value="Bookman" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="{StaticResource AqDanger}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqDanger}" />
         <Setter Property="IsVisible" Value="False" />
     </Style>
     <Style x:Key="AqLink" TargetType="Label">
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
+        <Setter Property="TextColor" Value="{DynamicResource AqPrimary}" />
         <Setter Property="MinimumHeightRequest" Value="44" />
         <Setter Property="VerticalTextAlignment" Value="Center" />
     </Style>
 
     <!-- Carte -->
     <Style x:Key="AqCard" TargetType="Border">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
-        <Setter Property="Stroke" Value="{StaticResource AqLine}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqWhite}" />
+        <Setter Property="Stroke" Value="{DynamicResource AqLine}" />
         <Setter Property="StrokeThickness" Value="1" />
         <Setter Property="Padding" Value="16" />
         <Setter Property="StrokeShape">
@@ -67,8 +81,8 @@
 
     <!-- Champ de saisie (Border + Entry) -->
     <Style x:Key="AqField" TargetType="Border">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
-        <Setter Property="Stroke" Value="{StaticResource AqBorder}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqWhite}" />
+        <Setter Property="Stroke" Value="{DynamicResource AqBorder}" />
         <Setter Property="StrokeThickness" Value="1.5" />
         <Setter Property="HeightRequest" Value="52" />
         <Setter Property="Padding" Value="16,0" />
@@ -79,19 +93,20 @@
         </Setter>
     </Style>
     <Style x:Key="AqEntry" TargetType="Entry">
+        <Setter Property="FontFamily" Value="Bookman" />
         <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
-        <Setter Property="PlaceholderColor" Value="{StaticResource AqBorder}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
+        <Setter Property="PlaceholderColor" Value="{DynamicResource AqBorder}" />
         <Setter Property="FontSize" Value="16" />
         <Setter Property="VerticalOptions" Value="Center" />
     </Style>
 
     <!-- Boutons -->
     <Style x:Key="AqPrimaryButton" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
-        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqOnPrimary}" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
         <Setter Property="HeightRequest" Value="52" />
         <Setter Property="CornerRadius" Value="12" />
         <Setter Property="VisualStateManager.VisualStateGroups">
@@ -100,8 +115,8 @@
                     <VisualState x:Name="Normal" />
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource AqDisabled}" />
-                            <Setter Property="TextColor" Value="{StaticResource AqMuted}" />
+                            <Setter Property="BackgroundColor" Value="{DynamicResource AqDisabled}" />
+                            <Setter Property="TextColor" Value="{DynamicResource AqMuted}" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
@@ -109,36 +124,38 @@
         </Setter>
     </Style>
     <Style x:Key="AqOutlineButton" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
-        <Setter Property="TextColor" Value="{StaticResource AqPrimary}" />
-        <Setter Property="BorderColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqWhite}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqPrimary}" />
+        <Setter Property="BorderColor" Value="{DynamicResource AqPrimary}" />
         <Setter Property="BorderWidth" Value="1.5" />
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
         <Setter Property="HeightRequest" Value="48" />
         <Setter Property="CornerRadius" Value="12" />
         <Setter Property="Padding" Value="0" />
     </Style>
     <Style x:Key="AqSelectedButton" TargetType="Button" BasedOn="{StaticResource AqOutlineButton}">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
-        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="FontFamily" Value="Bookman" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqOnPrimary}" />
     </Style>
     <Style x:Key="AqDayButton" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqWhite}" />
-        <Setter Property="TextColor" Value="{StaticResource AqInk}" />
-        <Setter Property="BorderColor" Value="{StaticResource AqBorder}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqWhite}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqInk}" />
+        <Setter Property="BorderColor" Value="{DynamicResource AqBorder}" />
         <Setter Property="BorderWidth" Value="1.5" />
         <Setter Property="WidthRequest" Value="40" />
         <Setter Property="HeightRequest" Value="40" />
         <Setter Property="CornerRadius" Value="20" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
     </Style>
     <Style x:Key="AqDayButtonOn" TargetType="Button" BasedOn="{StaticResource AqDayButton}">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
-        <Setter Property="BorderColor" Value="{StaticResource AqPrimary}" />
-        <Setter Property="TextColor" Value="{StaticResource AqWhite}" />
+        <Setter Property="FontFamily" Value="Bookman" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" />
+        <Setter Property="BorderColor" Value="{DynamicResource AqPrimary}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqOnPrimary}" />
     </Style>
 
     <!-- Couleurs ludiques -->
@@ -149,15 +166,16 @@
     <Color x:Key="AqWhiteSoft">#CFE3FA</Color>
     <Style x:Key="AqHeaderTitle" TargetType="Label">
         <Setter Property="FontSize" Value="26" />
-        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="BookmanDemi" />
         <Setter Property="TextColor" Value="White" />
     </Style>
     <Style x:Key="AqHeaderSub" TargetType="Label">
+        <Setter Property="FontFamily" Value="Bookman" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="TextColor" Value="{StaticResource AqWhiteSoft}" />
+        <Setter Property="TextColor" Value="{DynamicResource AqWhiteSoft}" />
     </Style>
     <Style x:Key="AqHeader" TargetType="Border">
-        <Setter Property="BackgroundColor" Value="{StaticResource AqPrimary}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource AqHeaderBg}" />
         <Setter Property="StrokeThickness" Value="0" />
         <Setter Property="Padding" Value="22,44,22,26" />
         <Setter Property="StrokeShape" Value="RoundRectangle 0,0,32,32" />

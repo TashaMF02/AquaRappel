@@ -1,0 +1,16 @@
+SERVEUR AQUARAPPEL (ASP.NET Core .NET 9 + base SQLite)
+
+PREMIER LANCEMENT (internet necessaire UNE fois : restauration du paquet Microsoft.Data.Sqlite, ~ quelques Mo) :
+    dotnet run --urls http://0.0.0.0:5080
+  -> http://localhost:5080/api/health doit afficher {"status":"ok",...}
+  Ensuite le paquet est en cache : plus besoin d'internet.
+  La base est creee toute seule dans  bin\Debug\net9.0\data\aquarappel.db  (ouvrable avec "DB Browser for SQLite").
+  Les anciens comptes (ancien fichier server.json) ne sont pas repris : refaire une inscription dans l'appli.
+
+DEPUIS L'EMULATEUR : http://10.0.2.2:5080 (par defaut)   -   DEPUIS LE TELEPHONE : http://IP-Wi-Fi-de-l-ordinateur:5080
+  (voir README precedent : network_security_config.xml + pare-feu : 
+   New-NetFirewallRule -DisplayName "AquaRappel" -Direction Inbound -Protocol TCP -LocalPort 5080 -Action Allow -Profile Private,Public)
+
+API : GET /api/health | POST /api/auth/register | POST /api/auth/login | POST /api/auth/logout
+      POST/GET /api/sync (Bearer) | DELETE /api/account (Bearer)
+Schema de la base : voir BASE_DE_DONNEES.md

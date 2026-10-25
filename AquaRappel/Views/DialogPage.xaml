@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaRappel.Views.DialogPage"
+             x:Name="Root"
+             BackgroundColor="#B30F2650"
+             Shell.NavBarIsVisible="False">
+
+    <Grid VerticalOptions="Center" Padding="28,0">
+
+        <!-- Carte papier : fond uni, texte contrasté, un seul lavis discret en haut -->
+        <Border Margin="0,34,0,0" BackgroundColor="{DynamicResource AqPaper}" Stroke="{DynamicResource AqLine}"
+                StrokeThickness="1" StrokeShape="RoundRectangle 22" Padding="0">
+            <Grid>
+                <Image Source="wash_head.png" Aspect="AspectFill" HeightRequest="64" Opacity="0.55"
+                       VerticalOptions="Start" InputTransparent="True" />
+
+                <VerticalStackLayout Padding="24,50,24,8" Spacing="10">
+                    <Label x:Name="TitleLabel" FontFamily="BookmanDemi" FontSize="23"
+                           TextColor="{DynamicResource AqInk}" HorizontalTextAlignment="Center" />
+                    <Label x:Name="HighlightLabel" FontFamily="BookmanDemi" FontSize="36"
+                           TextColor="{DynamicResource AqTabOn}" HorizontalTextAlignment="Center" IsVisible="False" />
+                    <Label x:Name="MessageLabel" FontFamily="Bookman" FontSize="16"
+                           TextColor="{DynamicResource AqMuted}" HorizontalTextAlignment="Center" LineHeight="1.25" />
+
+                    <VerticalStackLayout x:Name="OptionsLayout" Spacing="8" Margin="0,6,0,0" IsVisible="False"
+                                         BindableLayout.ItemsSource="{Binding Options}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button Text="{Binding .}" Style="{StaticResource AqOutlineButton}"
+                                        Command="{Binding Source={x:Reference Root}, Path=OptionCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+
+                    <!-- Actions en texte -->
+                    <BoxView HeightRequest="1" Color="{DynamicResource AqLine}" Margin="0,8,0,0" />
+                    <HorizontalStackLayout HorizontalOptions="End" Spacing="28" Margin="0,0,0,4">
+                        <Label x:Name="CancelLabel" FontFamily="Bookman" FontSize="16" TextColor="{DynamicResource AqMuted}"
+                               TextDecorations="Underline" VerticalTextAlignment="Center" HeightRequest="48" MinimumWidthRequest="60">
+                            <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnCancel" /></Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="AcceptLabel" FontFamily="BookmanDemi" FontSize="17" TextColor="{DynamicResource AqTabOn}"
+                               TextDecorations="Underline" VerticalTextAlignment="Center" HeightRequest="48" MinimumWidthRequest="60">
+                            <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnAccept" /></Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- Médaillon -->
+        <Border HorizontalOptions="Center" VerticalOptions="Start" WidthRequest="68" HeightRequest="68"
+                StrokeShape="RoundRectangle 34" BackgroundColor="{DynamicResource AqPale}"
+                Stroke="{DynamicResource AqBorder}" StrokeThickness="1" InputTransparent="True" Padding="0">
+            <Image x:Name="IconImage" WidthRequest="34" HeightRequest="34" />
+        </Border>
+    </Grid>
+</ContentPage>

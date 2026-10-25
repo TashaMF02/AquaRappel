@@ -1,20 +1,20 @@
+using AquaRappel.ViewModels;
+
 namespace AquaRappel.Views;
 
 public partial class LoginPage : ContentPage
 {
-    public LoginPage()
+    private readonly BaseViewModel _vm;
+
+    public LoginPage(LoginViewModel vm)
     {
         InitializeComponent();
+        BindingContext = _vm = vm;
     }
 
-    private async void OnLogin(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        // Validation simple : email contenant @ et mot de passe de 8 caractères minimum
-        bool ok = (EmailEntry.Text ?? "").Contains("@") && (PasswordEntry.Text ?? "").Length >= 8;
-        EmailError.IsVisible = !ok;
-        if (ok) await Shell.Current.GoToAsync("//main/home");
+        base.OnAppearing();
+        _vm.Refresh();
     }
-
-    private async void OnGoRegister(object sender, TappedEventArgs e)
-        => await Shell.Current.GoToAsync("//register");
 }

@@ -5,10 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:AquaRappel.Views"
     Shell.FlyoutBehavior="Disabled"
-    Shell.TabBarBackgroundColor="White"
-    Shell.TabBarForegroundColor="{StaticResource AqPrimary}"
-    Shell.TabBarTitleColor="{StaticResource AqPrimary}"
-    Shell.TabBarUnselectedColor="{StaticResource AqMuted}">
+    Shell.TabBarBackgroundColor="{DynamicResource AqWhite}"
+    Shell.TabBarForegroundColor="{DynamicResource AqTabOn}"
+    Shell.TabBarTitleColor="{DynamicResource AqTabOn}"
+    Shell.TabBarUnselectedColor="{DynamicResource AqMuted}">
 
     <!-- Écrans d'entrée, sans barre de navigation -->
     <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
@@ -16,10 +16,10 @@
 
     <!-- Barre de navigation à 5 onglets -->
     <TabBar Route="main">
-        <ShellContent Title="🏠 Accueil" Route="home" ContentTemplate="{DataTemplate views:HomePage}" />
-        <ShellContent Title="⏰ Rappels" Route="reminders" ContentTemplate="{DataTemplate views:RemindersPage}" />
-        <ShellContent Title="😴 Sommeil" Route="sleep" ContentTemplate="{DataTemplate views:SleepPage}" />
-        <ShellContent Title="👀 Pauses" Route="breaks" ContentTemplate="{DataTemplate views:BreaksPage}" />
-        <ShellContent Title="📊 Stats" Route="stats" ContentTemplate="{DataTemplate views:StatsPage}" />
+        <ShellContent Title="Accueil" Icon="tab_home.png" Route="home" ContentTemplate="{DataTemplate views:HomePage}" />
+        <ShellContent Title="Rappels" Icon="tab_bell.png" Route="reminders" ContentTemplate="{DataTemplate views:RemindersPage}" />
+        <ShellContent Title="Sommeil" Icon="tab_moon.png" Route="sleep" ContentTemplate="{DataTemplate views:SleepPage}" />
+        <ShellContent Title="Pauses" Icon="tab_eye.png" Route="breaks" ContentTemplate="{DataTemplate views:BreaksPage}" />
+        <ShellContent Title="Stats" Icon="tab_chart.png" Route="stats" ContentTemplate="{DataTemplate views:StatsPage}" />
     </TabBar>
 </Shell>

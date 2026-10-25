@@ -1,12 +1,20 @@
+using AquaRappel.ViewModels;
+
 namespace AquaRappel.Views;
 
 public partial class BreaksPage : ContentPage
 {
-    public BreaksPage()
+    private readonly BaseViewModel _vm;
+
+    public BreaksPage(BreaksViewModel vm)
     {
         InitializeComponent();
+        BindingContext = _vm = vm;
     }
 
-    private async void OnBreak(object sender, EventArgs e)
-        => await DisplayAlert("Pause", "Bravo, pause enregistrée (exemple).", "OK");
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _vm.Refresh();
+    }
 }

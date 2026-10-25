@@ -1,24 +1,20 @@
+using AquaRappel.ViewModels;
+
 namespace AquaRappel.Views;
 
 public partial class RegisterPage : ContentPage
 {
-    public RegisterPage()
+    private readonly BaseViewModel _vm;
+
+    public RegisterPage(RegisterViewModel vm)
     {
         InitializeComponent();
+        BindingContext = _vm = vm;
     }
 
-    private async void OnRegister(object sender, EventArgs e)
+    protected override void OnAppearing()
     {
-        string error = "";
-        if (string.IsNullOrWhiteSpace(NameEntry.Text)) error = "Le prénom est obligatoire.";
-        else if (!(EmailEntry.Text ?? "").Contains("@")) error = "Adresse email invalide.";
-        else if ((PasswordEntry.Text ?? "").Length < 8) error = "Mot de passe : 8 caractères minimum.";
-
-        FormError.Text = error;
-        FormError.IsVisible = error != "";
-        if (error == "") await Shell.Current.GoToAsync("//main/home");
+        base.OnAppearing();
+        _vm.Refresh();
     }
-
-    private async void OnGoLogin(object sender, TappedEventArgs e)
-        => await Shell.Current.GoToAsync("//login");
 }

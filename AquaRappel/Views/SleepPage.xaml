@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.SleepPage" Title="Sommeil" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.SleepPage" Title="Sommeil" BackgroundColor="{DynamicResource AqBg}" Shell.NavBarIsVisible="False">
     <Grid RowDefinitions="Auto,*">
         <Border Style="{StaticResource AqHeader}">
             <VerticalStackLayout Spacing="2">
-                <Label Text="😴  Sommeil" Style="{StaticResource AqHeaderTitle}" />
+                <Label Text="Sommeil" Style="{StaticResource AqHeaderTitle}" />
                 <Label Text="Une bonne nuit, une belle journée" Style="{StaticResource AqHeaderSub}" />
             </VerticalStackLayout>
         </Border>
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
-                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqLilac}" Stroke="#D1C4E9">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{DynamicResource AqLilac}" Stroke="#D1C4E9">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="🌙 Heure du coucher" Style="{StaticResource AqLabel}" />
-                        <TimePicker x:Name="BedPicker" Time="22:30" TextColor="{StaticResource AqInk}" PropertyChanged="OnTimeChanged" />
-                        <Label Text="☀️ Heure du réveil" Style="{StaticResource AqLabel}" />
-                        <TimePicker x:Name="WakePicker" Time="06:30" TextColor="{StaticResource AqInk}" PropertyChanged="OnTimeChanged" />
+                        <Label Text="Heure du coucher" Style="{StaticResource AqLabel}" />
+                        <TimePicker Time="{Binding BedTime}" TextColor="{DynamicResource AqInk}" />
+                        <Label Text="Heure du réveil" Style="{StaticResource AqLabel}" />
+                        <TimePicker Time="{Binding WakeTime}" TextColor="{DynamicResource AqInk}" />
                     </VerticalStackLayout>
                 </Border>
-                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqPale}">
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{DynamicResource AqPale}">
                     <VerticalStackLayout HorizontalOptions="Center">
-                        <Label Text="💤 Durée de la nuit" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" />
-                        <Label x:Name="DurationLabel" Text="8 h 00" FontSize="44" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" HorizontalTextAlignment="Center" />
+                        <Label Text="Durée de la nuit" Style="{StaticResource AqCaption}" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding DurationText}" FontSize="44" FontFamily="BookmanDemi" TextColor="{DynamicResource AqPrimary}" HorizontalTextAlignment="Center" />
                     </VerticalStackLayout>
                 </Border>
                 <Label Text="Comment tu as dormi ?" Style="{StaticResource AqLabel}" />
                 <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
-                    <Button Text="😫 Mal" Style="{StaticResource AqOutlineButton}" />
-                    <Button Grid.Column="1" Text="😐 Bof" Style="{StaticResource AqSelectedButton}" />
-                    <Button Grid.Column="2" Text="😄 Top" Style="{StaticResource AqOutlineButton}" />
+                    <Button Text="😫 Mal" Style="{StaticResource AqOutlineButton}" Command="{Binding SetQualityCommand}" CommandParameter="Mal">
+                        <Button.Triggers><DataTrigger TargetType="Button" Binding="{Binding Quality}" Value="Mal"><Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" /><Setter Property="TextColor" Value="White" /></DataTrigger></Button.Triggers>
+                    </Button>
+                    <Button Grid.Column="1" Text="😐 Bof" Style="{StaticResource AqOutlineButton}" Command="{Binding SetQualityCommand}" CommandParameter="Bof">
+                        <Button.Triggers><DataTrigger TargetType="Button" Binding="{Binding Quality}" Value="Bof"><Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" /><Setter Property="TextColor" Value="White" /></DataTrigger></Button.Triggers>
+                    </Button>
+                    <Button Grid.Column="2" Text="😄 Top" Style="{StaticResource AqOutlineButton}" Command="{Binding SetQualityCommand}" CommandParameter="Top">
+                        <Button.Triggers><DataTrigger TargetType="Button" Binding="{Binding Quality}" Value="Top"><Setter Property="BackgroundColor" Value="{DynamicResource AqPrimary}" /><Setter Property="TextColor" Value="White" /></DataTrigger></Button.Triggers>
+                    </Button>
                 </Grid>
-                <Button Text="Enregistrer la nuit 🌟" Style="{StaticResource AqPrimaryButton}" Clicked="OnSave" />
+                <Button Text="Enregistrer la nuit" Style="{StaticResource AqPrimaryButton}" Command="{Binding SaveCommand}" />
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

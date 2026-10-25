@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.LoginPage" BackgroundColor="{StaticResource AqPale}" Shell.NavBarIsVisible="False">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.LoginPage" BackgroundColor="{DynamicResource AqPale}" Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout Padding="24,50,24,24" Spacing="14">
-            <Image Source="aqua_logo.svg" WidthRequest="120" HeightRequest="120" />
-            <Label Text="AquaRappel" FontSize="36" FontAttributes="Bold" TextColor="{StaticResource AqPrimary}" HorizontalTextAlignment="Center" />
-            <Label Text="Bois, dors, respire : ton bien-être en un clin d'œil ✨" Style="{StaticResource AqCaption}" FontSize="14" HorizontalTextAlignment="Center" />
-            <Label Text="📧 Adresse email" Style="{StaticResource AqLabel}" Margin="0,16,0,0" />
-            <Border Style="{StaticResource AqField}"><Entry x:Name="EmailEntry" Placeholder="awa@exemple.com" Keyboard="Email" Style="{StaticResource AqEntry}" /></Border>
-            <Label x:Name="EmailError" Text="Oups, adresse email ou mot de passe invalide." Style="{StaticResource AqError}" />
-            <Label Text="🔒 Mot de passe" Style="{StaticResource AqLabel}" />
-            <Border Style="{StaticResource AqField}"><Entry x:Name="PasswordEntry" Placeholder="8 caractères minimum" IsPassword="True" Style="{StaticResource AqEntry}" /></Border>
-            <Button Text="C'est parti ! 🚀" Style="{StaticResource AqPrimaryButton}" Margin="0,12,0,0" Clicked="OnLogin" />
-            <Label Text="Pas de compte ? Créer un compte 🎈" Style="{StaticResource AqLink}" HorizontalOptions="Center">
-                <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnGoRegister" /></Label.GestureRecognizers>
+            <Image Source="aqua_logo.svg" WidthRequest="120" HeightRequest="120">
+                <Image.GestureRecognizers><TapGestureRecognizer Command="{Binding RevealServerCommand}" /></Image.GestureRecognizers>
+            </Image>
+            <Label Text="AquaRappel" FontSize="36" FontFamily="BookmanDemi" TextColor="{DynamicResource AqPrimary}" HorizontalTextAlignment="Center" />
+            <Label Text="Bois, dors, respire : ton bien-être en un clin d'œil" Style="{StaticResource AqCaption}" FontSize="14" HorizontalTextAlignment="Center" />
+            <Label Text="Adresse email" Style="{StaticResource AqLabel}" Margin="0,16,0,0" />
+            <Border Style="{StaticResource AqField}"><Entry Text="{Binding Email}" Placeholder="awa@exemple.com" Keyboard="Email" Style="{StaticResource AqEntry}" /></Border>
+            <Label Text="{Binding Error}" IsVisible="{Binding HasError}" Style="{StaticResource AqError}" />
+            <Label Text="Mot de passe" Style="{StaticResource AqLabel}" />
+            <Border Style="{StaticResource AqField}"><Entry Text="{Binding Password}" Placeholder="8 caractères, lettres et chiffres" IsPassword="True" Style="{StaticResource AqEntry}" /></Border>
+            <Button Text="C'est parti !" Style="{StaticResource AqPrimaryButton}" Margin="0,12,0,0" Command="{Binding LoginCommand}" />
+            <Label Text="Adresse du serveur (mode développeur)" IsVisible="{Binding ServerFieldVisible}" Style="{StaticResource AqCaption}" Margin="0,10,0,0" />
+            <Border Style="{StaticResource AqField}" HeightRequest="44" IsVisible="{Binding ServerFieldVisible}"><Entry Text="{Binding ServerUrl}" Keyboard="Url" Placeholder="http://10.0.2.2:5080" Style="{StaticResource AqEntry}" FontSize="14" /></Border>
+            <Label Text="Pas de compte ? Créer un compte" Style="{StaticResource AqLink}" HorizontalOptions="Center">
+                <Label.GestureRecognizers><TapGestureRecognizer Command="{Binding GoRegisterCommand}" /></Label.GestureRecognizers>
             </Label>
         </VerticalStackLayout>
     </ScrollView>

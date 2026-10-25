@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.RemindersPage" Title="Rappels" BackgroundColor="{StaticResource AqBg}" Shell.NavBarIsVisible="False">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AquaRappel.Views.RemindersPage" Title="Rappels" BackgroundColor="{DynamicResource AqBg}" Shell.NavBarIsVisible="False">
     <Grid RowDefinitions="Auto,*">
         <Border Style="{StaticResource AqHeader}">
             <VerticalStackLayout Spacing="2">
-                <Label Text="⏰  Rappels" Style="{StaticResource AqHeaderTitle}" />
+                <Label Text="Rappels" Style="{StaticResource AqHeaderTitle}" />
                 <Label Text="Ne rien oublier, sans stress" Style="{StaticResource AqHeaderSub}" />
             </VerticalStackLayout>
         </Border>
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="20,20,20,24" Spacing="14">
-                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqPale}"><Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"><Label Text="💧" FontSize="32" VerticalOptions="Center" /><VerticalStackLayout Grid.Column="1"><Label Text="Boire de l'eau" Style="{StaticResource AqBody}" FontAttributes="Bold" /><Label Text="Toutes les 2 h · 08:00 – 20:00" Style="{StaticResource AqCaption}" /></VerticalStackLayout><Switch Grid.Column="2" IsToggled="True" OnColor="{StaticResource AqPrimary}" /></Grid></Border>
-                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqMint}"><Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"><Label Text="👀" FontSize="32" VerticalOptions="Center" /><VerticalStackLayout Grid.Column="1"><Label Text="Pause écran" Style="{StaticResource AqBody}" FontAttributes="Bold" /><Label Text="Toutes les 45 min · jours ouvrés" Style="{StaticResource AqCaption}" /></VerticalStackLayout><Switch Grid.Column="2" IsToggled="True" OnColor="{StaticResource AqPrimary}" /></Grid></Border>
-                <Border Style="{StaticResource AqCard}" BackgroundColor="{StaticResource AqLilac}"><Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"><Label Text="🌙" FontSize="32" VerticalOptions="Center" /><VerticalStackLayout Grid.Column="1"><Label Text="Heure du coucher" Style="{StaticResource AqBody}" FontAttributes="Bold" /><Label Text="Tous les jours · 22:30" Style="{StaticResource AqCaption}" /></VerticalStackLayout><Switch Grid.Column="2" IsToggled="False" OnColor="{StaticResource AqPrimary}" /></Grid></Border>
-                <Label Text="📅 Jours actifs" Style="{StaticResource AqLabel}" Margin="0,8,0,0" />
-                <HorizontalStackLayout Spacing="6">
-                    <Button Text="L" Style="{StaticResource AqDayButtonOn}" Clicked="OnToggleDay" />
-                    <Button Text="M" Style="{StaticResource AqDayButtonOn}" Clicked="OnToggleDay" />
-                    <Button Text="M" Style="{StaticResource AqDayButtonOn}" Clicked="OnToggleDay" />
-                    <Button Text="J" Style="{StaticResource AqDayButtonOn}" Clicked="OnToggleDay" />
-                    <Button Text="V" Style="{StaticResource AqDayButtonOn}" Clicked="OnToggleDay" />
-                    <Button Text="S" Style="{StaticResource AqDayButton}" Clicked="OnToggleDay" />
-                    <Button Text="D" Style="{StaticResource AqDayButton}" Clicked="OnToggleDay" />
-                </HorizontalStackLayout>
-                <Button Text="➕ Ajouter un rappel" Style="{StaticResource AqPrimaryButton}" Margin="0,12,0,0" Clicked="OnAdd" />
+                <Label Text="Touche un rappel pour régler librement sa fréquence, ses heures et ses jours." Style="{StaticResource AqCaption}" FontSize="13" />
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{DynamicResource AqPale}">
+                    <Border.GestureRecognizers><TapGestureRecognizer Command="{Binding EditCommand}" CommandParameter="water" /></Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Image Source="dlg_drop.png" WidthRequest="34" HeightRequest="34" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Boire de l'eau" Style="{StaticResource AqBody}" FontFamily="BookmanDemi" />
+                            <Label Text="{Binding WaterInfo}" Style="{StaticResource AqCaption}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding WaterOn}" VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{DynamicResource AqMint}">
+                    <Border.GestureRecognizers><TapGestureRecognizer Command="{Binding EditCommand}" CommandParameter="break" /></Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Image Source="dlg_eye.png" WidthRequest="34" HeightRequest="34" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Pause écran" Style="{StaticResource AqBody}" FontFamily="BookmanDemi" />
+                            <Label Text="{Binding BreakInfo}" Style="{StaticResource AqCaption}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding BreakOn}" VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+                <Border Style="{StaticResource AqCard}" BackgroundColor="{DynamicResource AqLilac}">
+                    <Border.GestureRecognizers><TapGestureRecognizer Command="{Binding EditCommand}" CommandParameter="bed" /></Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Image Source="dlg_moon.png" WidthRequest="34" HeightRequest="34" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                            <Label Text="Heure du coucher" Style="{StaticResource AqBody}" FontFamily="BookmanDemi" />
+                            <Label Text="{Binding BedInfo}" Style="{StaticResource AqCaption}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="{Binding BedOn}" VerticalOptions="Center" />
+                    </Grid>
+                </Border>
             </VerticalStackLayout>
         </ScrollView>
     </Grid>

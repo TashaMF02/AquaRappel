@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HTTPS obligatoire partout, SAUF pour les adresses de test ci-dessous (serveur sur ton ordinateur).
+     En production, le serveur est en HTTPS et ces lignes sont supprimées. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!-- Remplace par l'adresse IP de ton ordinateur (ipconfig > Adresse IPv4) pour tester sur ton téléphone -->
+        <domain includeSubdomains="false">192.168.1.142</domain>
+    </domain-config>
+</network-security-config>
